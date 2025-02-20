@@ -1,0 +1,11 @@
+
+services:
+  node:
+    image: node:18
+    container_name: strapi-starter-project
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - '1337:1337'
+    command: yarn develop
