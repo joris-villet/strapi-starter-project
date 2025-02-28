@@ -1,5 +1,27 @@
 
 services:
+  strapi:
+    build: .
+    container_name: strapi
+    ports:
+      - '1337:1337'
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: db-strapi
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: js4life
+    volumes:
+      - /home/julek/docker/strapi-starter-project/app:/opt/app/config
+      - /home/julek/docker/strapi-starter-project/config:/opt/app/config
+      - /home/julek/docker/strapi-starter-project/src:/opt/app/src
+      - /home/julek/docker/strapi-starter-project/package.json:/opt/package.json
+      - /home/julek/docker/strapi-starter-project/yarn.lock:/opt/yarn.lock
+      - /home/julek/docker/strapi-starter-project/.env:/opt/app/.env
+      - /home/julek/docker/strapi-starter-project/public/uploads:/opt/app/public/uploads
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres:16
@@ -9,5 +31,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: js4life
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - /home/julek/docker/strapi-project/data:/var/lib/postgresql/data
 
+  
