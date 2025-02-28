@@ -23,6 +23,7 @@ services:
       - /home/julek/docker/strapi-starter-project/yarn.lock:/opt/app/yarn.lock
       - /home/julek/docker/strapi-starter-project/.env:/opt/app/.env
       - /home/julek/docker/strapi-starter-project/public/uploads:/opt/app/public/uploads
+      - /home/julek/docker/strapi-starter-project/entrypoint.sh:/opt/app/entrypoint.sh
     depends_on:
       - postgres
 
