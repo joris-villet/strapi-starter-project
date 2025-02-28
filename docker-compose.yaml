@@ -16,14 +16,13 @@ services:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: js4life
     volumes:
-      - /home/julek/docker/strapi-starter-project/app:/opt/app/config
-      - /home/julek/docker/strapi-starter-project/config:/opt/app/config
-      - /home/julek/docker/strapi-starter-project/src:/opt/app/src
-      - /home/julek/docker/strapi-starter-project/package.json:/opt/app/package.json
-      - /home/julek/docker/strapi-starter-project/yarn.lock:/opt/app/yarn.lock
-      - /home/julek/docker/strapi-starter-project/.env:/opt/app/.env
-      - /home/julek/docker/strapi-starter-project/public/uploads:/opt/app/public/uploads
-      - /home/julek/docker/strapi-starter-project/entrypoint.sh:/opt/app/entrypoint.sh
+      - ./config:/opt/app/config
+      - ./src:/opt/app/src
+      - ./package.json:/opt/package.json
+      - ./yarn.lock:/opt/yarn.lock
+      - ./.env:/opt/app/.env
+      - ./public/uploads:/opt/app/public/uploads
+      - ./entrypoint.sh:/opt/app/entrypoint.sh
     depends_on:
       - postgres
 

@@ -2,13 +2,12 @@
 
 FROM node:18-alpine
 
-WORKDIR /app
-
+WORKDIR /opt/app
 
 COPY package.json yarn.lock ./
 
 
-# RUN yarn install
+RUN npm install -g yarn
 
 
 RUN npm install --platform=linux --arch=x64 sharp
@@ -16,14 +15,12 @@ RUN npm install --platform=linux --arch=x64 sharp
 
 COPY . . 
 
-COPY entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
+COPY entrypoint.sh /opt/app/entrypoint.sh
+RUN chmod +x /opt/app/entrypoint.sh
 
-
-# RUN yarn develop
 
 EXPOSE 1337
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["/opt/app/entrypoint.sh"]
 
 
