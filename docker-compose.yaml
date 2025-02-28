@@ -19,8 +19,8 @@ services:
       - /home/julek/docker/strapi-starter-project/app:/opt/app/config
       - /home/julek/docker/strapi-starter-project/config:/opt/app/config
       - /home/julek/docker/strapi-starter-project/src:/opt/app/src
-      - /home/julek/docker/strapi-starter-project/package.json:/opt/package.json
-      - /home/julek/docker/strapi-starter-project/yarn.lock:/opt/yarn.lock
+      - /home/julek/docker/strapi-starter-project/package.json:/opt/app/package.json
+      - /home/julek/docker/strapi-starter-project/yarn.lock:/opt/app/yarn.lock
       - /home/julek/docker/strapi-starter-project/.env:/opt/app/.env
       - /home/julek/docker/strapi-starter-project/public/uploads:/opt/app/public/uploads
     depends_on:
