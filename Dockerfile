@@ -6,10 +6,8 @@ WORKDIR /opt/app
 
 COPY package.json yarn.lock ./
 
-RUN chmod +x /opt/app/
-
-
-RUN npm install -g yarn
+# RUN chmod +x /opt/app/
+# RUN npm install -g yarn
 
 
 RUN npm install --platform=linux --arch=x64 sharp
