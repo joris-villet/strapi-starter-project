@@ -1,10 +1,13 @@
 
 services:
   strapi:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
     container_name: strapi
     ports:
       - '1337:1337'
+    working_dir: /opt/app
     environment:
       DATABASE_CLIENT: postgres
       DATABASE_NAME: db-strapi
